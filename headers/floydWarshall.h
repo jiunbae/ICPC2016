@@ -11,7 +11,7 @@
 using namespace std;
 
 template<typename type>
-void floydWarshall(const vector< vector<type> >& map)
+void floydWarshall(vector< vector<type> >& map)
 {
 	for(int k = 0; k< map.size(); k++)
 		for(int i = 0; i < map.size(); i++)
