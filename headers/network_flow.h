@@ -52,6 +52,9 @@ struct Node {
 	vector<Edge*> edges;
 	node_value value;
 	
+	Node() {}
+	Node(node_value val) { this->value = val; }
+	
 	void connectTo(Node* target, int capacity) {
 		Edge *e = new Edge(target, capacity);
 		Edge *e_rev = new Edge(this, 0);
@@ -120,14 +123,12 @@ int main() {
 	vector<Node*> sheds(M);
 	
 	for (int i=0; i<N; i++) {
-		cows[i] = new Node;
-		cows[i]->value = i+1;
+		cows[i] = new Node(i+1);
 		source->connectTo(cows[i], 1);
 	}
 	
 	for (int i=0; i<M; i++) {
-		sheds[i] = new Node;
-		sheds[i]->value = i+1;
+		sheds[i] = new Node(i+1);
 		sheds[i]->connectTo(sink, 1);
 	}
 	
